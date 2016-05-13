@@ -4,9 +4,9 @@ const gulp   = require('gulp');
 const rollup = require('rollup');
 const babel  = require('rollup-plugin-babel');
 
-/*
-* rollup.js Gulp task
-*/
+/**
+ *  rollup.js Gulp task
+ */
 gulp.task('rollup', () => {
   let entry   = './src/js/master.js';
   let dest    = './public/js/master.js';
@@ -18,9 +18,9 @@ gulp.task('rollup', () => {
   });
 });
 
-/*
-* Default Gulp task
-*/
+/**
+ *  Default Gulp task
+ */
 gulp.task('default', ['rollup'], () => {
   gulp.watch(['./src/js/master.js', './src/js/modules/**/*.js'], ['rollup'])
     .on('change', (event) => {
