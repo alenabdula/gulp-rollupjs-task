@@ -4,19 +4,23 @@ const gulp   = require('gulp');
 const rollup = require('rollup');
 const babel  = require('rollup-plugin-babel');
 
+/*
+* rollup.js Gulp task
+*/
 gulp.task('rollup', () => {
-  let source      = './src/js/master.js';
-  let destination = './public/js/master.js';
-  rollup.rollup({
-    entry: source,
-    plugins: [ babel() ]
-  }).then( (bundle) => {
-    let format = 'umd';
-    let result = bundle.generate({ format: format });
-    bundle.write({ format: format, dest: destination });
+  let entry   = './src/js/master.js';
+  let dest    = './public/js/master.js';
+  let plugins = [babel()];
+  rollup.rollup({ entry, plugins }).then( (bundle) => {
+    let format = 'umd'; /* amd, cjs, es6, iife, umd */
+    let result = bundle.generate({ format });
+    bundle.write({ format, dest });
   });
 });
 
+/*
+* Default Gulp task
+*/
 gulp.task('default', ['rollup'], () => {
   gulp.watch(['./src/js/master.js', './src/js/modules/**/*.js'], ['rollup'])
     .on('change', (event) => {
