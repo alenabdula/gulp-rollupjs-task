@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "name": "RollUpJsDemo",
+  "version": "0.0.1",
+  "scripts": {
+    "rollup": "rollup -c"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "rollup": "^0.26.3",
+    "rollup-plugin-babel": "^2.4.0"
+  }
+}
