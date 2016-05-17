@@ -4,13 +4,13 @@
   (factory());
 }(this, function () { 'use strict';
 
-  class Example {
-    init() {
-      return 'Class: Example, Method: init()';
-    }
-  }
+  var Example = function Example () {};
 
-  let foo = new Example();
+  Example.prototype.init = function init() {
+    return 'Class: Example, Method: init()';
+  };
+
+  var foo = new Example();
   console.log(foo.init());
 
 }));

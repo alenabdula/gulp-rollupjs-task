@@ -3,6 +3,7 @@
 const gulp   = require('gulp');
 const rollup = require('rollup');
 const babel  = require('rollup-plugin-babel');
+const buble  = require('rollup-plugin-buble');
 
 /**
  *  rollup.js Gulp task
@@ -10,7 +11,7 @@ const babel  = require('rollup-plugin-babel');
 gulp.task('rollup', () => {
   let entry   = './src/js/master.js';
   let dest    = './public/js/master.js';
-  let plugins = [babel()];
+  let plugins = [ babel(), buble() ];
   rollup.rollup({ entry, plugins }).then( (bundle) => {
     let format = 'umd'; /* amd, cjs, es6, iife, umd */
     let result = bundle.generate({ format });
