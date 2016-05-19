@@ -10,7 +10,7 @@
     return 'Class: Example, Method: init()';
   };
 
-  var foo = new Example();
+  var foo = new Example;
   console.log(foo.init());
 
 }));
